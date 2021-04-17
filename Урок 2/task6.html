@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let amount = prompt('Введите сумму для зачисления на счет');
+        alert(generate_message(amount));
+        
+        function generate_message(amount) {
+            
+            let amount_string = String(amount); //на случай, если значение запрашивается не через prompt (т.к. prompt по умолчанию возвращает строку)
+
+            let last_char_amount = amount_string[amount_string.length - 1];
+
+            let last_char_ruble = '';
+
+            switch (last_char_amount) {
+                case '0':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    last_char_ruble = 'ей';
+                    break;
+                case '1':
+                    last_char_ruble = 'ь';
+                    break;
+                case '2':
+                case '3':
+                case '4':
+                    last_char_ruble = 'я';
+                    break;
+            }
+
+            return `Ваша сумма в ${amount_string} рубл${last_char_ruble} успешно зачислена.`;
+        }
+
+    </script>
+</body>
+
+</html>
