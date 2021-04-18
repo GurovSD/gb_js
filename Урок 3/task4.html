@@ -37,7 +37,7 @@
         ];
 
         // т.к. в последнем элемене свойста photos нет, надо сначала проверить каждый 
-        //элемент на наличие этого свойства (чтобы не проверять length у undefined, когда свойства нет)
+        //элемент на наличие этого свойства (чтобы не проверять length у undefined)
         const productsFiltered = products.filter(product => ('photos' in product) && product.photos.length > 0)
         console.log(productsFiltered)
     </script>
