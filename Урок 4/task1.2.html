@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //ES5
+        function Post_5(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post_5.prototype.edit = function (newText) {
+            this.text = newText;
+        }
+
+        let post1 = new Post_5('Martin', 'Winter is coming', '08/01/1996');
+        post1.edit('You know nothing');
+        console.log(post1.text);
+
+        function AttachedPost_5(author, text, date) {
+            Post_5.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost_5.prototype = Object.create(Post_5.prototype);
+        AttachedPost_5.prototype.constructor = AttachedPost_5;
+
+        AttachedPost_5.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        let attachedPost1 = new AttachedPost_5('Lucas', 'I\'m your father', '04/12/1980');
+        attachedPost1.makeTextHighlighted();
+
+        console.log(attachedPost1.highlighted);
+
+        //ES6
+        class Post_6 {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit(newText) {
+                this.text = newText;
+            }
+        }
+
+        class AttachedPost_6 extends Post_6 {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        let post2 = new Post_6('qwe', 'asd', '01.01.2000'); //сорри, 4 часа ночи уже...
+        post2.edit('zxc');
+        console.log(post2.text);
+
+        let attachedPost2 = new AttachedPost_6('rty', 'fgh', '02.02.2000');
+        attachedPost2.makeTextHighlighted();
+        console.log(attachedPost2.highlighted);
+    </script>
+</body>
+
+</html>
