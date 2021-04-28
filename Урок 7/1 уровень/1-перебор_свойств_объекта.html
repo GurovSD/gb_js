@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        'use strict';
+
         const products = {
             one: "один",
             two: "два",
@@ -19,6 +21,9 @@
         имя свойства, значение свойства.
         */
 
+        for(let i in products){
+            console.log(`${i}: ${products[i]}`);
+        }
     </script>
 </body>
 </html>
