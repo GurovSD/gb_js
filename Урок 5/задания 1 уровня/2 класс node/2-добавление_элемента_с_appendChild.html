@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+    <!-- Задание. Добавьте в div c помощью appendChild следующую разметку:
+    <h3>hello world</h3>
+    -->
+
+    <script>
+        'use strict';
+
+        let divTop = document.querySelector('div');
+        let h3New = document.createElement('h3');
+        h3New.textContent += 'hello world';
+        divTop.appendChild(h3New);
+        // console.log(mtParent);
+    </script>
+</body>
+
+</html>
